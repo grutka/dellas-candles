@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quem Somos — D'Ellas Candles</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --terracota: #945e3a;
+    --terracota-light: #b8825c;
+    --cream: #fef7ef;
+    --cream-mid: #f5ece0;
+    --cream-dark: #e8d9c8;
+    --dark: #1e1208;
+    --mid: #6b4c35;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 32px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(148,94,58,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--terracota-light);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 1s 0.2s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 7vw, 80px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--terracota);
+    line-height: 1.1;
+    opacity: 0;
+    animation: fadeUp 1s 0.4s forwards;
+  }
+
+  .hero-divider {
+    width: 1px;
+    height: 56px;
+    background: linear-gradient(to bottom, transparent, var(--terracota-light), transparent);
+    margin: 40px auto 0;
+    opacity: 0;
+    animation: fadeUp 1s 0.6s forwards;
+  }
+
+  /* ── CONTENT ── */
+  .content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 32px 100px;
+  }
+
+  .block {
+    margin-bottom: 56px;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .block.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .block p {
+    font-size: 17px;
+    line-height: 1.95;
+    color: var(--mid);
+  }
+
+  .block-highlight {
+    border-left: 2px solid var(--terracota);
+    padding-left: 28px;
+    margin: 56px 0;
+  }
+
+  .block-highlight p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--dark);
+    line-height: 1.65;
+  }
+
+  .founder {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .founder-line {
+    width: 40px;
+    height: 1px;
+    background: var(--terracota);
+  }
+
+  .founder-name {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--terracota);
+  }
+
+  .names-row {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin: 32px 0;
+  }
+
+  .name-item {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--terracota);
+    position: relative;
+  }
+
+  .name-item::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--cream-dark);
+    margin-top: 6px;
+  }
+
+  .closing {
+    background: var(--dark);
+    padding: 80px 32px;
+    text-align: center;
+  }
+
+  .closing-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .closing p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 2.5vw, 26px);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .closing p:last-child {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    color: rgba(254,247,239,0.55);
+    margin-bottom: 0;
+  }
+
+  footer {
+    background: var(--terracota);
+    padding: 36px 32px;
+    text-align: center;
+  }
+
+  footer .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--cream);
+  }
+
+  footer .logo span { font-style: italic; font-weight: 300; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  footer p {
+    margin-top: 6px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(254,247,239,0.6);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .phrases-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--cream-dark);
+    border: 1px solid var(--cream-dark);
+    margin: 8px 0 56px;
+  }
+
+  .phrase-item {
+    background: var(--cream);
+    padding: 28px 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--mid);
+    line-height: 1.5;
+  }
+
+  .essa-ela {
+    text-align: center;
+    padding: 56px 32px;
+    background: var(--cream-mid);
+    margin: 0 -32px 56px;
+  }
+
+  .essa-ela p {
+    font-size: 15px;
+    color: var(--terracota-light);
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+
+  .essa-ela span {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--terracota);
+    display: block;
+  }
+
+  .block-detail p {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-align: center;
+    color: var(--terracota-light);
+  }
+
+
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .names-row { gap: 20px; }
+    .name-item { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <p class="hero-eyebrow">D'Ellas Candles</p>
+  <h1 class="hero-title">Quem Somos</h1>
+  <div class="hero-divider"></div>
+</section>
+
+<div class="content">
+
+  <div class="block">
+    <div class="founder">
+      <div class="founder-line"></div>
+      <div class="founder-name">Camila Grutka · Fundadora</div>
+    </div>
+    <p>A D'Ellas Candles foi idealizada por Camila Grutka — em um período de mudanças na sua própria vida. Foi nesse tempo que as histórias de mulheres que escolheram seguir em frente, mesmo diante do impossível, ganharam um novo significado.</p>
+  </div>
+
+  <div class="block">
+    <p>Sara, Maria, Raabe, Débora — mulheres da Bíblia que não eram perfeitas, mas que foram extraordinárias nas decisões que tomaram. Não como símbolos de adoração, mas como referências de fé, coragem e propósito.</p>
+
+    <div class="names-row">
+      <div class="name-item">Sara</div>
+      <div class="name-item">Maria</div>
+      <div class="name-item">Raabe</div>
+      <div class="name-item">Débora</div>
+    </div>
+  </div>
+
+  <div class="block block-highlight">
+    <p>Da vontade de honrar essas histórias nasceu a nossa primeira coleção: Mulheres de Propósito. Cada vela carrega um nome, uma essência e algo a mais — pensado para tocar quem recebe.</p>
+  </div>
+
+  <div class="block">
+    <p>Tem uma que fala mais alto pra você.</p>
+  </div>
+
+  <div class="block phrases-grid">
+    <div class="phrase-item">A que ainda espera.</div>
+    <div class="phrase-item">A que recomeçou.</div>
+    <div class="phrase-item">A que disse sim quando tinha tudo pra dizer não.</div>
+    <div class="phrase-item">A que se levantou quando ninguém acreditava que ela ia.</div>
+  </div>
+
+  <div class="block essa-ela">
+    <p>E tem aquela pessoa que você olha e pensa:</p>
+    <span>essa é ela.</span>
+  </div>
+
+  <div class="block block-detail">
+    <p>Criamos em edições limitadas, com cuidado em cada detalhe — da composição ao acabamento.</p>
+  </div>
+
+</div>
+
+<div class="closing">
+  <div class="closing-inner">
+    <p>"Não como símbolos de adoração — como referências de propósito."</p>
+    <p>D'Ellas Candles · Mulheres de Propósito</p>
+  </div>
+</div>
+
+<footer>
+  <div class="logo">D'<span>Ellas</span> Candles</div>
+  <p>Mulheres de Propósito · Edição Limitada</p>
+</footer>
+
+<script>
+  const blocks = document.querySelectorAll('.block');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  blocks.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
